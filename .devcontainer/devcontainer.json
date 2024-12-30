@@ -1,0 +1,43 @@
+// See https://containers.dev/implementors/json_reference/ for configuration reference
+{
+	"name": "Untitled Node.js project",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": ["biomejs.biome", "GitHub.copilot"],
+			"settings": {
+				"editor.formatOnSave": true,
+				"[javascript]": {
+					"editor.defaultFormatter": "biomejs.biome"
+				},
+				"[javascriptreact]": {
+					"editor.defaultFormatter": "biomejs.biome"
+				},
+				"[typescript]": {
+					"editor.defaultFormatter": "biomejs.biome"
+				},
+				"[typescriptreact]": {
+					"editor.defaultFormatter": "biomejs.biome"
+				},
+				"[json]": {
+					"editor.defaultFormatter": "biomejs.biome"
+				},
+				"editor.codeActionsOnSave": {
+					"quickfix.biome": "explicit",
+					"source.organizeImports.biome": "explicit",
+					"source.fixAll.eslint": "explicit",
+					"source.addMissingImports": true
+				},
+				"editor.tabSize": 2,
+				"editor.quickSuggestions": {
+					"strings": true
+				}
+			}
+		}
+	},
+	"remoteUser": "node",
+	"runArgs": ["--add-host=host.docker.internal:host-gateway"],
+	"postCreateCommand": "chmod 755 ./.devcontainer/init.sh && ./.devcontainer/init.sh"
+}
